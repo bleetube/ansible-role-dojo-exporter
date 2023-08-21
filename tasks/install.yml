@@ -1,0 +1,11 @@
+---
+- name: Ensure pipx is installed
+  ansible.builtin.package:
+    name: pipx
+    state: present
+  become: yes
+
+- name: Install dojo_exporter using pipx
+  ansible.builtin.command:
+    cmd: pipx install dojo-exporter
+  register: poetry_install
